@@ -527,6 +527,70 @@
     <link rel='stylesheet' id='elementor-gf-local-robotoslab-css' href='../wp-content/uploads/2025/04/robotoslab.css'
           media='all'/>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            (function ($) {
+                function wfacp_scroll() {
+                    $('html, body').animate({
+                        scrollTop: $('#wfacp-e-form').offset().top
+                    }, 500);
+                }
+
+                function resetProductSelection() {
+                    // Entfernt die aktive Klasse von allen Boxen und Buttons
+                    $('.product-box').removeClass('active-product');
+                    $('.checkout-button').removeClass('active-button')
+                        .text('Order now')
+                        .css('cursor', 'pointer');
+                }
+
+                // Vorauswahl von proA beim Laden der Seite (ohne Scrollen)
+                resetProductSelection();
+                $('.proA').addClass('active-product');
+                $('.proA').find('.checkout-button')
+                    .addClass('active-button')
+                    .text('Selected');
+                $('.wfacp_switcher_checkbox').eq(0).click();
+
+                // Produkt 1 auswählen (proA)
+                $('.proA').on('click', function (e) {
+                    e.preventDefault();
+                    resetProductSelection();
+                    $(this).addClass('active-product');
+                    $(this).find('.checkout-button')
+                        .addClass('active-button')
+                        .text('Selected');
+                    $('.wfacp_switcher_checkbox').eq(0).click();
+                    wfacp_scroll();
+                });
+
+                // Produkt 2 auswählen (proB)
+                $('.proB').on('click', function (e) {
+                    e.preventDefault();
+                    resetProductSelection();
+                    $(this).addClass('active-product');
+                    $(this).find('.checkout-button')
+                        .addClass('active-button')
+                        .text('Selected');
+                    $('.wfacp_switcher_checkbox').eq(1).click();
+                    wfacp_scroll();
+                });
+
+                // Produkt 3 auswählen (proC)
+                $('.proC').on('click', function (e) {
+                    e.preventDefault();
+                    resetProductSelection();
+                    $(this).addClass('active-product');
+                    $(this).find('.checkout-button')
+                        .addClass('active-button')
+                        .text('Selected');
+                    $('.wfacp_switcher_checkbox').eq(2).click();
+                    wfacp_scroll();
+                });
+
+            })(jQuery);
+        });
+    </script>
 
     <!-- Google Tag Manager for WordPress by gtm4wp.com -->
     <!-- GTM Container placement set to automatic -->
@@ -861,7 +925,7 @@
                                     <div class="pricing">
                                         <p class="akp">before:</p>
                                         <div class="prices">
-                                            <span class="old-price">R1442</span>
+                                            <span class="old-price">R1,442</span>
                                             <span class="new-price">R900</span>
                                         </div>
                                         <p class="ppp">Price per pack</p>
@@ -958,11 +1022,11 @@
                                     <div class="pricing">
                                         <p class="akp">before</p>
                                         <div class="prices">
-                                            <span class="old-price">R1100</span>
+                                            <span class="old-price">R1,100</span>
                                             <span class="new-price">R660</span>
                                         </div>
                                         <p class="ppp">Price per pack</p>
-                                        <p class="gpr">Total price: R1983</p>
+                                        <p class="gpr">Total price: R1,983</p>
                                     </div>
                                     <div class="features">
                                         <div class="feature">
@@ -1064,11 +1128,11 @@
                                     <div class="pricing">
                                         <p class="akp">before</p>
                                         <div class="prices">
-                                            <span class="old-price">R1260</span>
+                                            <span class="old-price">R1,260</span>
                                             <span class="new-price">R720</span>
                                         </div>
                                         <p class="ppp">Price per pack</p>
-                                        <p class="gpr">Total price: R1440</p>
+                                        <p class="gpr">Total price: R1,440</p>
                                     </div>
                                     <div class="features">
                                         <div class="feature">
@@ -1088,7 +1152,7 @@
                                         </div>
                                     </div>
                                     <div class="checkout-box">
-                                        <button class="checkout-button">Order now</button>
+                                        <button class="checkout-button selected">Order now</button>
                                         <p class="st-kr">Purchase on account and installments possible</p>
                                         <div class="payment-container">
                                             <span class="ml-1" data-v-f4424259=""><svg
@@ -1182,7 +1246,7 @@
                                     transition: all 0.3s ease;
                                 }
 
-                                /* Stil für die aktiv ausgewählte Box */
+                                /* Stil für die aktiv Selected Box */
                                 .active-product {
                                     border: 2px solid #E9C32C;
                                 }
@@ -1477,7 +1541,7 @@
                         <div class="elementor-widget-container">
                             <div class="product-container">
                                 <!-- Produktbox 2 -->
-                                <div class="product-box proA" data-variant_id="1557">
+                                <div class="product-box proA active-product" data-variant_id="1557">
                                     <div class="title-image">
                                         <p class="boxtitle1">Bestseller</p>
                                         <img decoding="async"
@@ -1487,11 +1551,11 @@
                                     <div class="pricing">
                                         <p class="akp">before</p>
                                         <div class="prices">
-                                            <span class="old-price">R1080</span>
+                                            <span class="old-price">R1,080</span>
                                             <span class="new-price">R660</span>
                                         </div>
                                         <p class="ppp">Price per pack</p>
-                                        <p class="gpr">Total price: R1983</p>
+                                        <p class="gpr">Total price: R1,983</p>
                                     </div>
                                     <div class="features">
                                         <div class="feature">
@@ -1516,7 +1580,7 @@
                                         </div>
                                     </div>
                                     <div class="checkout-box">
-                                        <button class="checkout-button">Order now</button>
+                                        <button class="checkout-button select">Order now</button>
                                         <p class="st-kr">Purchase on account and installments possible</p>
                                         <div class="payment-container">
                                             <span class="ml-1" data-v-f4424259=""><svg
@@ -1593,11 +1657,11 @@
                                     <div class="pricing">
                                         <p class="akp">before</p>
                                         <div class="prices">
-                                            <span class="old-price">R1260</span>
+                                            <span class="old-price">R1,260</span>
                                             <span class="new-price">R720</span>
                                         </div>
                                         <p class="ppp">Price per pack</p>
-                                        <p class="gpr">Total price: R1440</p>
+                                        <p class="gpr">Total price: R1,440</p>
                                     </div>
                                     <div class="features">
                                         <div class="feature">
@@ -1694,11 +1758,11 @@
                                     <div class="pricing">
                                         <p class="akp">previously:</p>
                                         <div class="prices">
-                                            <span class="old-price">R1440</span>
+                                            <span class="old-price">R1,440</span>
                                             <span class="new-price">R900</span>
                                         </div>
                                         <p class="ppp">Price per pack</p>
-                                        <p class="gpr">Total price: R1000</p>
+                                        <p class="gpr">Total price: R1,000</p>
                                     </div>
                                     <div class="features">
                                         <div class="feature">
@@ -1807,7 +1871,7 @@
                                         transition: all 0.3s ease;
                                     }
 
-                                    /* Stil für die aktiv ausgewählte Box */
+                                    /* Stil für die aktiv Selected Box */
                                     .active-product {
                                         border: 2px solid #E9C32C;
                                     }
@@ -4415,8 +4479,7 @@
         document.getElementById("shipping-date").textContent = calculateShippingDate();
     });
 </script>
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>
